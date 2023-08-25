@@ -93,19 +93,17 @@
             
                 document.getElementById("people").innerHTML = tab;
             const elements = document.querySelectorAll('.name');
-           elements.forEach(name => {
-           elements[i].addEventListener('click', function() {
-                const nextElement = elements[name].nextElementSibling;
+           elements.forEach((item) => {
+           item.addEventListener('click', function() {
+                const nextElement = item.nextElementSibling;
                 nextElement.style.display = 'block';
             });
             name.addEventListener
-           })
+           });
             
             }
-         
-
-        
-    </script>
+      
+  </script>
 </body>
 
 </html>
