@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>SPA</title>
+    <style>
+        html {
+            font-size: 22px;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        .card {
+            background-color: dodgerblue;
+            color: white;
+            padding: 1rem;
+            /* height: 4rem; */
+        }
+
+        .cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .description{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">STAR WARS ACTORS</h1>
+    <p id="loading">Loading API. Please wait...</p>
+
+    <div id="people" class="cards">
+        
+        
+    </div>
+
+
+    <script>
+        // api url
+        const api_url = "https://swapi.dev/api/people";
+        getapi(api_url);
+        // Defining async function
+        async function getapi(url) {
+            fetch(api_url)
+                .then(response => response.json())
+                .then(data => {
+                    hideloader();
+                    show(data.results);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function show(data) {
+           // l= ;
+
+           console
+           let tab = "";
+          
+
+             data.forEach(item => {
+                   
+                 tab += `<div class='card display' style='text-align: center;''><img alt='profile' width='100px' src='images/profile.jpg'><br><p class='name' style='cursor: pointer;'>${item.name}</p><div class='description'>Height: ${item.height} , Gender: ${item.gender} </div> </div>`;
+                    
+                });
+            
+            
+                document.getElementById("people").innerHTML = tab;
+            const elements = document.querySelectorAll('.name');
+           elements.forEach((item) => {
+           item.addEventListener('click', function() {
+                const nextElement = item.nextElementSibling;
+                nextElement.style.display = 'block';
+            });
+            name.addEventListener
+           });
+            
+            }
+      
+  </script>
+</body>
+
+</html>
